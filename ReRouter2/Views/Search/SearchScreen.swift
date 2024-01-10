@@ -23,6 +23,9 @@ struct SearchScreen: View {
     @Binding var transportationType: TransportationOptions
     @Bindable var distanceFormatter: DistanceFormatter
     @Binding var destinationMapItems: [MKMapItem]
+    @Binding var favoriteMapItems: [MKMapItem]
+    @Binding var finalDestination: MKMapItem?
+    @Binding var waypointDestination: MKMapItem?
     @Binding var showSearchView: Bool
     
     
@@ -75,7 +78,7 @@ struct SearchScreen: View {
             
             switch displayMode{
             case .list:
-                SearchBarView (search: $query, isSearching: $isSearching)
+                SearchBarView (search: $query, isSearching: $isSearching, selectedMapItem: $selectedMapItem, favoriteMapItems: $favoriteMapItems, finalDestination: $finalDestination, waypointDestination: $waypointDestination, distanceFormatter: distanceFormatter, displayMode: $displayMode)
                 PlaceListView(mapItems: $mapItems, selectedMapItem: $selectedMapItem, distanceFormatter: distanceFormatter, showSearchView: $showSearchView)
             case .detail:
                 SelectedPlaceDetailView(mapItem: $selectedMapItem, distanceFormatter: distanceFormatter, showSearchView: $showSearchView)
@@ -83,7 +86,7 @@ struct SearchScreen: View {
                 
                 
                 if selectedMapItem != nil {
-                    ActionButtons(mapItem: $selectedMapItem, mapItems: $mapItems, destinationMapItems: $destinationMapItems, selectedDetents: $selectedDetents )
+                    ActionButtons(mapItem: $selectedMapItem, mapItems: $mapItems, favoriteMapItems: $favoriteMapItems, finalDestination: $finalDestination, waypointDestination: $waypointDestination, selectedDetents: $selectedDetents )
                         .padding()
                 }
                     

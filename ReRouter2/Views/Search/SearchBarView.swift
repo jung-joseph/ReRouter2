@@ -6,11 +6,22 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct SearchBarView: View {
     
     @Binding var search: String
     @Binding var isSearching: Bool
+    
+    @Binding var selectedMapItem: MKMapItem?
+    @Binding var favoriteMapItems: [MKMapItem]
+    @Binding var finalDestination: MKMapItem?
+    @Binding var waypointDestination: MKMapItem?
+
+    
+    @Bindable var distanceFormatter: DistanceFormatter
+    @Binding var displayMode: DisplayMode
+
     
     var body: some View {
         VStack(spacing: -10) {
@@ -20,7 +31,7 @@ struct SearchBarView: View {
                 .onSubmit {
                     isSearching = true
                 }
-            SearchOptionsView { searchOption in
+            SearchOptionsView(selectedMapItem: $selectedMapItem, favoriteMapItems: $favoriteMapItems, finalDestination: $finalDestination, waypointDestination: $waypointDestination, distanceFormatter: distanceFormatter, displayMode: $displayMode){ searchOption in
                 search = searchOption
                 isSearching = true
             }
@@ -30,6 +41,6 @@ struct SearchBarView: View {
     }
 }
 
-#Preview {
-    SearchBarView(search: .constant("Coffee"), isSearching: .constant(true))
-}
+//#Preview {
+//    SearchBarView(search: .constant("Coffee"), isSearching: .constant(true))
+//}

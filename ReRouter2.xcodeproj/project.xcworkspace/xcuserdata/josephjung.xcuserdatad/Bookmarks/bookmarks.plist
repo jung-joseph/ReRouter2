@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>top-level-items</key>
+	<array>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>0</string>
+					<key>EndingLineNumber</key>
+					<string>31</string>
+					<key>StartingColumnNumber</key>
+					<string>0</string>
+					<key>StartingLineNumber</key>
+					<string>30</string>
+					<key>Timestamp</key>
+					<string>726528061.993394</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>ReRouter2/Views/Favorites/FavoritesScreen.swift</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string>                SelectedPlaceDetailView(mapItem: $selectedMapItem, distanceFormatter: distanceFormatter, showSearchView: $showFavoritesView)
+</string>
+				<key>leading</key>
+				<string>            case .detail:
+                
+</string>
+				<key>trailing</key>
+				<string>                    .padding()
+                
+            }
+</string>
+			</dict>
+			<key>title</key>
+			<string>check if $showFavoritesView is correct to use here</string>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>0</string>
+					<key>EndingLineNumber</key>
+					<string>54</string>
+					<key>StartingColumnNumber</key>
+					<string>0</string>
+					<key>StartingLineNumber</key>
+					<string>53</string>
+					<key>Timestamp</key>
+					<string>726526618.2747869</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>ReRouter2/Views/Search/SearchOptionsView.swift</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string>                    print("in FavoritesListView - onSubmit")
+</string>
+				<key>leading</key>
+				<string>                    
+                    
+</string>
+				<key>trailing</key>
+				<string>                    /*
+                    do {
+                        if let data = UserDefaults.standard.data(forKey: "savedMapItems") {
+</string>
+			</dict>
+			<key>title</key>
+			<string>Delete when ready</string>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>0</string>
+					<key>EndingLineNumber</key>
+					<string>60</string>
+					<key>StartingColumnNumber</key>
+					<string>0</string>
+					<key>StartingLineNumber</key>
+					<string>59</string>
+					<key>Timestamp</key>
+					<string>726451314.6294529</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>ReRouter2/Views/Search/SelectedPlaceDetailViewup/ActionButtons.swift</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string>                        /*
+</string>
+				<key>leading</key>
+				<string>                        writeArrayUserDefaults(arrayIn: favoriteMapItems, mapItem: mapItem!)
+                        
+</string>
+				<key>trailing</key>
+				<string>                        do {
+                            
+                          
+</string>
+			</dict>
+			<key>title</key>
+			<string>Remove when ready</string>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>0</string>
+					<key>EndingLineNumber</key>
+					<string>42</string>
+					<key>StartingColumnNumber</key>
+					<string>0</string>
+					<key>StartingLineNumber</key>
+					<string>41</string>
+					<key>Timestamp</key>
+					<string>726527989.419498</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>ReRouter2/Views/Favorites/FavoritesListView.swift</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string>                NavigationView{
+</string>
+				<key>leading</key>
+				<string>                    }
+                }
+</string>
+				<key>trailing</key>
+				<string>                    List(selection: $selectedMapItem){
+                        ForEach(favoriteMapItems, id: \.self) { mapItem in
+                            VStack{
+</string>
+			</dict>
+			<key>title</key>
+			<string>finish delete function besure to add updating the UserDefaults</string>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>0</string>
+					<key>EndingLineNumber</key>
+					<string>70</string>
+					<key>StartingColumnNumber</key>
+					<string>0</string>
+					<key>StartingLineNumber</key>
+					<string>69</string>
+					<key>Timestamp</key>
+					<string>726528293.717925</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>ReRouter2/Views/Favorites/FavoritesListView.swift</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string>                            writeArrayUserDefaults(arrayIn: favoriteMapItems, mapItem: selectedMapItem)
+</string>
+				<key>leading</key>
+				<string>                        .onDelete{indexSet in
+                            favoriteMapItems.remove(atOffsets: indexSet)
+</string>
+				<key>trailing</key>
+				<string>                        }
+                    }
+                    .task(id: selectedMapItem){
+</string>
+			</dict>
+			<key>title</key>
+			<string>check that deleting the last favorite does not create an issue</string>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>23</string>
+					<key>EndingLineNumber</key>
+					<string>30</string>
+					<key>StartingColumnNumber</key>
+					<string>22</string>
+					<key>StartingLineNumber</key>
+					<string>30</string>
+					<key>Timestamp</key>
+					<string>726529348.603541</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>ReRouter2/Views/Place/ActionButtons.swift</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string> </string>
+				<key>leading</key>
+				<string>                Button(action: {
+                    //action
+                    if</string>
+				<key>trailing</key>
+				<string>let mapItem{
+                        MKMapItem.openMaps(with: [mapItem])
+                    }
+</string>
+			</dict>
+			<key>title</key>
+			<string>check why not routing </string>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+	</array>
+</dict>
+</plist>

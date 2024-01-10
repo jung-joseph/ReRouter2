@@ -12,6 +12,8 @@ struct FavoritesScreen: View {
     
     @Binding var selectedMapItem: MKMapItem?
     @Binding var favoriteMapItems: [MKMapItem]
+    @Binding var finalDestination: MKMapItem?
+    @Binding var waypointDestination: MKMapItem?
     @Bindable var distanceFormatter: DistanceFormatter
     @Binding var showFavoritesView: Bool
     @Binding var displayMode: DisplayMode
@@ -22,7 +24,7 @@ struct FavoritesScreen: View {
             switch displayMode {
             case .list:
                 
-                FavoritesListView(selectedMapItem: $selectedMapItem, favoriteMapItems: $favoriteMapItems, distanceFormatter: distanceFormatter, showFavoritesView: $showFavoritesView, displayMode: $displayMode)
+                FavoritesListView(selectedMapItem: $selectedMapItem, favoriteMapItems: $favoriteMapItems, finalDestination: $finalDestination, waypointDestination: $waypointDestination, distanceFormatter: distanceFormatter, showFavoritesView: $showFavoritesView, displayMode: $displayMode)
                 
             case .detail:
                 

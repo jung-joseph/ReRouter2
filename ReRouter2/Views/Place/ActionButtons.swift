@@ -13,6 +13,8 @@ struct ActionButtons: View {
     @Binding var mapItem: MKMapItem?
     @Binding var mapItems: [MKMapItem]
     @Binding var favoriteMapItems: [MKMapItem]
+    @Binding var finalDestination: MKMapItem?
+    @Binding var waypointDestination: MKMapItem?
     @Binding var selectedDetents: PresentationDetent
     
     //    @State var showMapItemNameEditor: Bool = false
@@ -33,16 +35,33 @@ struct ActionButtons: View {
                 }, label: {
                     HStack {
                         Image(systemName: "car.circle.fill")
-                        Text("Route with Apple Maps")
+                        Text("Route to this Destination")
                             .font(.system(size: 10))
                         
                     }
                 }).buttonStyle(.bordered)
                 
+                Button {
+                    if (finalDestination != nil) && (waypointDestination != nil){
+                        MKMapItem.openMaps(with: [waypointDestination!,finalDestination!])
+                    }
+                } label: {
+                    HStack {
+                        Image(systemName: "car.circle.fill")
+                        Text("Route to Way Point & Final Destingation")
+                            .font(.system(size: 10))
+                        
+                    }
+                }
+
+            }
+            .buttonStyle(.bordered)
+            
+            VStack{
                 //MARK: - Add to Favorites
                 HStack{
                     Button(action: {
-                       // get the current savedFavorites
+                        // get the current savedFavorites
                         if let readFavoriteMapItems = readArrayUserDefaults(arrayIn: favoriteMapItems){
                             favoriteMapItems.removeAll()
                             print("appending old favoriteMapItems")
@@ -57,42 +76,8 @@ struct ActionButtons: View {
                         }
                         writeArrayUserDefaults(arrayIn: favoriteMapItems, mapItem: mapItem!)
                         
-                        /*
-                        do {
-                            
-                          
-                            if let data = UserDefaults.standard.data(forKey: "savedMapItems") {
-                                if let tempFavoriteMapItems = try NSKeyedUnarchiver.unarchivedArrayOfObjects(ofClass: MKMapItem.self, from: data){
-                                    
-                                    favoriteMapItems.removeAll()
-
-                                    tempFavoriteMapItems.forEach { item in
-                                        print("mapItem Name: \(String(describing: item.name))")
-                                        favoriteMapItems.append(item)
-                                    }
-                                    if (mapItem != nil){
-                                        favoriteMapItems.append(mapItem!)
-                                    }
-                                    
-                                }
-                            }
-                        } catch {
-                            print("try failed")
-                        }
-                    
-                                                
-                        do {
-                            let data = try NSKeyedArchiver.archivedData(withRootObject: favoriteMapItems as Any, requiringSecureCoding: false)
-                            UserDefaults.standard.set(data, forKey:"savedMapItems")
-                            
-                        } catch {
-                            print("Failed to create Archive of favoriteMapItems")
-                            // save just the current mapItem
-                            UserDefaults.standard.set(mapItem, forKey: "savedMapItems")
-                        }
-                         */
                         
- 
+                        
                     },
                            label: {
                         HStack{
@@ -102,60 +87,69 @@ struct ActionButtons: View {
                         }
                     }).buttonStyle(.bordered)
                 }
-                //                MARK: - Retrieve save MapItem
+                //                MARK: - Set as Waypoint Destination
                 HStack{
                     Button(action: {
                         
-                        do {
-                            if let data = UserDefaults.standard.data(forKey: "savedMapItems") {
-                                if let favoriteMapItems = try NSKeyedUnarchiver.unarchivedArrayOfObjects(ofClass: MKMapItem.self, from: data){
-                                    favoriteMapItems.forEach { item in
-                                        print("mapItem Name: \(String(describing: item.name))")
-                                    }
-                                }
-                            }
-                        } catch {
-                            print("try failed")
-                        }
+                        waypointDestination = mapItem
+                        print("waypointDestination: \(String(describing: waypointDestination!.name))")
                         
                         
                     },
                            label: {
                         HStack{
-                            Image(systemName: "star.fill")
-                            Text("Get to Favorites")
+                            Text("Set as Waypoint")
                                 .font(.system(size: 10))
                         }
                     }).buttonStyle(.bordered)
                 }
-            }
-                //   MARK: - Website Link
-                if let url = mapItem?.url {
-                    HStack{
-                        Link(destination: url, label: {
-                            HStack{
-                                Image(systemName: "link")
-                                Text("Website")
-                                    .font(.system(size: 10))
-                                
-                            }
-                        }).buttonStyle(.bordered)
-                    }
-                }
-                //MARK: - phone button
-                if mapItem?.phoneNumber != nil {
-                    Button(action: {
-                        if let phone = mapItem?.phoneNumber {
-                            let numericPhoneNumber = phone.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
-                            makeCall(phone: numericPhoneNumber)
+//                MARK: - Set as Final Destination
+                HStack {
+                    Button {
+                        finalDestination = mapItem
+                        print("finalDestination: \(String(describing: finalDestination!.name))")
+
+                    } label: {
+                        HStack{
+                            Text("Set as Final Destination")
+                                .font(.system(size: 10))
                         }
-                    }, label: {
-                        HStack {
-                            Image(systemName: "phone.fill")
-                            Text("Call")
+                    }
+
+                }
+            }
+            .buttonStyle(.bordered)
+            VStack{
+            //   MARK: - Website Link
+            if let url = mapItem?.url {
+                HStack{
+                    Link(destination: url, label: {
+                        HStack{
+                            Image(systemName: "link")
+                            Text("Website")
+                                .font(.system(size: 10))
+                            
                         }
                     }).buttonStyle(.bordered)
                 }
+            }
+            //MARK: - phone button
+            if mapItem?.phoneNumber != nil {
+                Button(action: {
+                    if let phone = mapItem?.phoneNumber {
+                        let numericPhoneNumber = phone.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+                        makeCall(phone: numericPhoneNumber)
+                    }
+                }, label: {
+                    HStack {
+                        Image(systemName: "phone.fill")
+                        Text("Call") 
+                            .font(.system(size: 10))
+
+                    }
+                }).buttonStyle(.bordered)
+            }
+        }
                 
             }
             
